@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace TNRD.Constraints
 {
-    public class Constrain
+    public static class Constrain
     {
         public static ConstrainedRect To(EditorWindow editorWindow)
         {
