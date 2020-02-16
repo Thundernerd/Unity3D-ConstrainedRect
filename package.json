@@ -1,0 +1,19 @@
+{
+  "name": "net.tnrd.constrainedrect",
+  "version": "1.0.0",
+  "displayName": "Constrained Rect",
+  "description": "A simple helper to constrain a Rect to an EditorWindow or another Rect",
+  "unity": "2019.1",
+ "keywords": [
+    "rect",
+    "editor",
+    "help",
+    "helper"
+  ],
+  "author": {
+    "name": "Christiaan Bloemendaal",
+    "email": "unity3d@tnrd.net",
+    "url": "https://www.tnrd.net"
+  },
+  "dependencies": {}
+}
