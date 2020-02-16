@@ -1,21 +1,17 @@
 # Constrained Rect
 
 <p align="center">
-	<a href="#">
-		<img alt="GitHub package.json version" src ="https://img.shields.io/github/package-json/v/Thundernerd/Unity3D-ConstrainedRect" />
-	</a>
-		<a href="#">
+	<img alt="GitHub package.json version" src ="https://img.shields.io/github/package-json/v/Thundernerd/Unity3D-ConstrainedRect" />
+	<a href="https://github.com/Thundernerd/Unity3D-ConstrainedRect/issues">
 		<img alt="GitHub issues" src ="https://img.shields.io/github/issues/Thundernerd/Unity3D-ConstrainedRect" />
 	</a>
-		<a href="#">
+	<a href="https://github.com/Thundernerd/Unity3D-ConstrainedRect/pulls">
 		<img alt="GitHub pull requests" src ="https://img.shields.io/github/issues-pr/Thundernerd/Unity3D-ConstrainedRect" />
 	</a>
-		<a href="#">
+	<a href="https://github.com/Thundernerd/Unity3D-ConstrainedRect/blob/master/LICENSE.md">
 		<img alt="GitHub license" src ="https://img.shields.io/github/license/Thundernerd/Unity3D-ConstrainedRect" />
 	</a>
-		<a href="#">
-		<img alt="GitHub last commit" src ="https://img.shields.io/github/last-commit/Thundernerd/Unity3D-ConstrainedRect" />
-	</a>
+	<img alt="GitHub last commit" src ="https://img.shields.io/github/last-commit/Thundernerd/Unity3D-ConstrainedRect" />
 </p>
 
 Constrained Rect is a small helper that aims to make it easier to create Rect's based on existing ones.
