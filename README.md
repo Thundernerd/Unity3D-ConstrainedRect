@@ -40,7 +40,7 @@ private void Foo()
 }
 ```
 
-Aside from `Left`, `Top`, `Right`, and `Bottom`, you can also use `Width` and `Height`. These will **override** `Right` and `Bottom` respectively.
+Aside from `Left`, `Top`, `Right`, and `Bottom`, you can also use `Width` and `Height`. If you want to use `width` and `height` you will have to omit either `left` or `right` and `top` or `bottom` respectively. 
 
 Other modifiers are `Absolute` and `Percentage`. 
 Absolute is what it suggests: instead of taking into account it's constraints it just returns the value given.
