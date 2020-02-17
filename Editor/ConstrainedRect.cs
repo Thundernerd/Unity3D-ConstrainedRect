@@ -41,26 +41,64 @@ namespace TNRD.Constraints
 
         public Rect ToRect()
         {
-            var left = Left.Apply(parent.xMin);
-            var top = Top.Apply(parent.yMin);
-            var width = Width.IsSet ? Width.Apply(parent.width) : CalculateWidth();
-            var height = Height.IsSet ? Height.Apply(parent.height) : CalculateHeight();
+            float left = 0, top = 0, right = 0, bottom = 0;
 
-            return new Rect(left, top, width, height);
+            CalculateHorizontal(out left, out right);
+            CalculateVertical(out top, out bottom);
+
+            return new Rect(left, top, right, bottom);
         }
 
-        private float CalculateWidth()
+        private void CalculateHorizontal(out float left, out float right)
         {
-            var right = Right.Apply(parent.xMax);
-            var left = Left.Apply(parent.xMin);
-            return right - left;
+            if (!Width.IsSet || (Left.IsSet && Right.IsSet))
+            {
+                left = Left.Apply(parent.xMin);
+                right = Right.Apply(parent.xMax) - left;
+                return;
+            }
+
+            if (Left.IsSet && !Right.IsSet)
+            {
+                left = Left.Apply(parent.xMin);
+                right = Width.Apply(parent.width);
+            }
+            else if (!Left.IsSet && Right.IsSet)
+            {
+                right = Width.Apply(parent.width);
+                left = Right.Apply(parent.xMax) - right;
+            }
+            else
+            {
+                left = Left.Apply(parent.xMin);
+                right = Width.Apply(parent.width);
+            }
         }
 
-        private float CalculateHeight()
+        private void CalculateVertical(out float top, out float bottom)
         {
-            var bottom = Bottom.Apply(parent.yMax);
-            var top = Top.Apply(parent.yMin);
-            return bottom - top;
+            if (!Height.IsSet || (Top.IsSet && Bottom.IsSet))
+            {
+                top = Top.Apply(parent.yMin);
+                bottom = Bottom.Apply(parent.yMax) - top;
+                return;
+            }
+
+            if (Top.IsSet && !Bottom.IsSet)
+            {
+                top = Top.Apply(parent.yMin);
+                bottom = Height.Apply(parent.height);
+            }
+            else if (!Top.IsSet && Bottom.IsSet)
+            {
+                bottom = Height.Apply(parent.height);
+                top = Bottom.Apply(parent.yMax) - bottom;
+            }
+            else
+            {
+                top = Top.Apply(parent.yMin);
+                bottom = Height.Apply(parent.height);
+            }
         }
     }
 }

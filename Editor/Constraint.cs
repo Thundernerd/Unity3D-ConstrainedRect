@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TNRD.Constraints
+﻿namespace TNRD.Constraints
 {
     public class Constraint
     {
@@ -13,8 +11,8 @@ namespace TNRD.Constraints
         }
 
         private readonly ConstrainedRect parent;
+        private readonly bool negateValue;
         private ConstrainMode mode;
-        private bool negateValue;
         private float value;
 
         private float Value => negateValue ? -value : value;
