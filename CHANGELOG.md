@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.0.2] - 2020-02-19
+## Fixed
+- Incorrect naming of assembly definitions
+
 ## [2.0.1] - 2020-02-19
 ## Fixed
 - Tests assembly references
