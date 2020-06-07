@@ -161,5 +161,31 @@ namespace TNRD.Constraints.Tests
             Assert.AreEqual(120, constrained.yMax);
             Assert.AreEqual(64, constrained.height);
         }
+
+        [Test]
+        public void CenterHorizontally()
+        {
+            var constrained = Constrain.To(rect)
+                .Width.Absolute(20)
+                .CenterHorizontally()
+                .ToRect();
+
+            Assert.AreEqual(20, constrained.width);
+            Assert.AreEqual(128 / 2 - 10, constrained.xMin);
+            Assert.AreEqual(128 / 2 + 10, constrained.xMax);
+        }
+
+        [Test]
+        public void CenterVertically()
+        {
+            var constrained = Constrain.To(rect)
+                .Height.Absolute(20)
+                .CenterVertically()
+                .ToRect();
+
+            Assert.AreEqual(20, constrained.height);
+            Assert.AreEqual(128 / 2 - 10, constrained.yMin);
+            Assert.AreEqual(128 / 2 + 10, constrained.yMax);
+        }
     }
 }

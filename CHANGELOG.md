@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.1.0] - 2020-06-07
+## Added
+- Options to center horizontally and vertically
+
 ## [2.0.2] - 2020-02-19
 ## Fixed
 - Incorrect naming of assembly definitions

@@ -17,6 +17,8 @@
 
         private float Value => negateValue ? -value : value;
 
+        internal float RawValue => value;
+
         public bool IsSet => mode != ConstrainMode.NotSet;
 
         public Constraint(ConstrainedRect parent, bool negateValue)

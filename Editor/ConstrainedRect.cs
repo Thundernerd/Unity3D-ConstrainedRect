@@ -13,6 +13,9 @@ namespace TNRD.Constraints
         public Constraint Width { get; }
         public Constraint Height { get; }
 
+        private bool centerHorizontally;
+        private bool centerVertically;
+
         public ConstrainedRect(Rect parent)
         {
             this.parent = parent;
@@ -51,6 +54,15 @@ namespace TNRD.Constraints
 
         private void CalculateHorizontal(out float left, out float right)
         {
+            if (centerHorizontally && Width.IsSet)
+            {
+                float width = Mathf.Abs(Width.RawValue);
+                left = parent.center.x - width * 0.5f;
+                right = width;
+
+                return;
+            }
+
             if (!Width.IsSet || (Left.IsSet && Right.IsSet))
             {
                 left = Left.Apply(parent.xMin);
@@ -77,6 +89,15 @@ namespace TNRD.Constraints
 
         private void CalculateVertical(out float top, out float bottom)
         {
+            if (centerVertically && Height.IsSet)
+            {
+                float height = Mathf.Abs(Height.RawValue);
+                top = parent.center.y - height * 0.5f;
+                bottom = height;
+
+                return;
+            }
+
             if (!Height.IsSet || (Top.IsSet && Bottom.IsSet))
             {
                 top = Top.Apply(parent.yMin);
@@ -99,6 +120,18 @@ namespace TNRD.Constraints
                 top = Top.Apply(parent.yMin);
                 bottom = Height.Apply(parent.height);
             }
+        }
+
+        public ConstrainedRect CenterHorizontally()
+        {
+            centerHorizontally = true;
+            return this;
+        }
+
+        public ConstrainedRect CenterVertically()
+        {
+            centerVertically = true;
+            return this;
         }
     }
 }
