@@ -4,7 +4,7 @@ namespace TNRD.Constraints
 {
     public class ConstrainedRect
     {
-        private readonly Rect parent;
+        private Rect parent;
 
         public Constraint Top { get; }
         public Constraint Bottom { get; }
@@ -16,25 +16,43 @@ namespace TNRD.Constraints
         private bool centerHorizontally;
         private bool centerVertically;
 
-        public ConstrainedRect(Rect parent)
-        {
-            this.parent = parent;
+        private bool isValid;
 
+        internal ConstrainedRect(Rect parent)
+        {
             Top = new Constraint(this, false);
             Bottom = new Constraint(this, true);
             Left = new Constraint(this, false);
             Right = new Constraint(this, true);
             Width = new Constraint(this, false);
             Height = new Constraint(this, false);
+
+            Reset(parent);
+        }
+
+        internal void Reset(Rect parent)
+        {
+            this.parent = parent;
+
+            Top.Reset();
+            Bottom.Reset();
+            Left.Reset();
+            Right.Reset();
+            Width.Reset();
+            Height.Reset();
+
+            isValid = true;
         }
 
         public Rect Relative(float value)
         {
+            ThrowIfInvalid();
             return Relative(value, value, value, value);
         }
 
         public Rect Relative(float left, float top, float right, float bottom)
         {
+            ThrowIfInvalid();
             return Left.Relative(left)
                 .Top.Relative(top)
                 .Right.Relative(right)
@@ -42,12 +60,30 @@ namespace TNRD.Constraints
                 .ToRect();
         }
 
+        public ConstrainedRect CenterHorizontally()
+        {
+            ThrowIfInvalid();
+            centerHorizontally = true;
+            return this;
+        }
+
+        public ConstrainedRect CenterVertically()
+        {
+            ThrowIfInvalid();
+            centerVertically = true;
+            return this;
+        }
+
         public Rect ToRect()
         {
-            float left = 0, top = 0, right = 0, bottom = 0;
+            ThrowIfInvalid();
+            float left, top, right, bottom;
 
             CalculateHorizontal(out left, out right);
             CalculateVertical(out top, out bottom);
+
+            ConstrainedRectPool.Return(this);
+            isValid = false;
 
             return new Rect(left, top, right, bottom);
         }
@@ -122,16 +158,12 @@ namespace TNRD.Constraints
             }
         }
 
-        public ConstrainedRect CenterHorizontally()
+        internal void ThrowIfInvalid()
         {
-            centerHorizontally = true;
-            return this;
-        }
+            if (isValid)
+                return;
 
-        public ConstrainedRect CenterVertically()
-        {
-            centerVertically = true;
-            return this;
+            throw new InvalidStateException();
         }
     }
 }
