@@ -1,22 +1,26 @@
 # Changelog
 
+## [3.0.0] - 2020-08-02
+### Added
+- Pooling of Constrained Rect
+
 ## [2.1.0] - 2020-06-07
-## Added
+### Added
 - Options to center horizontally and vertically
 
 ## [2.0.2] - 2020-02-19
-## Fixed
+### Fixed
 - Incorrect naming of assembly definitions
 
 ## [2.0.1] - 2020-02-19
-## Fixed
+### Fixed
 - Tests assembly references
 
 ## [2.0.0] - 2020-02-17
-## Added
+### Added
 - Tests
 
-## Changed
+### Changed
 - Calculation method for left, top, right, bottom
 - Width and height no longer override right and bottom by default
 

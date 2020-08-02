@@ -16,6 +16,17 @@
 
 Constrained Rect is a small helper that aims to make it easier to create Rect's based on existing ones.
 
+## Installation
+1. The package is available on the [openupm registry](https://openupm.com). You can install it via [openupm-cli](https://github.com/openupm/openupm-cli).
+```
+openupm add net.tnrd.constrainedrect
+```
+2. You can also install via git url by adding these entries in your **manifest.json**
+```json
+"net.tnrd.constrainedrect": "https://github.com/Thundernerd/Unity3D-ConstrainedRect.git"
+```
+
+
 ## Usage
 Using constrained rects is easy. You simply call `Constrain.To(...)` and pass it either a `Rect` or an `EditorWindow`.
 
@@ -59,20 +70,17 @@ private void Foo()
 }
 ```
 
+### Important
+Due to the nature of Unity's editor architecture it is common to use Constrained Rects in high volume. In an attempt to prevent creating and collecting too much garbage as a result of using Constrained Rects they are now being pooled.
+
+After you've finalized your Constrained Rect by calling `.ToRect()` the Constrained Rect will be returned to the pool and free to use for other instances. 
+
+While all of this happens under the hood it is important to understand that from the moment that you call `.ToRect()` the Constrained Rect will throw an exception if it is not being used. This also means that if it is being used then the properties and variables might be different from what you might expect.
+
+## Support
+**Constrained Rect** is a small and open-source utility that I hope helps other people. It is by no means necessary but if you feel generous you can support me by donating.
+
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/J3J11GEYY)
+
 ## Contributing
 Pull requests are welcomed. Please feel free to fix any issues you find, or add new features.
-
-## Installing
-Installing Constrained Rect into your Unity3D project is done through the [Package Manager](https://docs.unity3d.com/Manual/Packages.html).
-
-You can either add the package manually to the [manifest.json](https://docs.unity3d.com/Manual/upm-dependencies.html) file:
-```json
-{
-    "dependencies": {
-        "net.tnrd.constrainedrect": "https://github.com/Thundernerd/Unity3D-ConstrainedRect.git"
-    }
-}
-```
-
-Or add it through the UI by selecting the **+ button** in the top left of the Package Manager, selecting _Add package from git URL..._, and pasting https://github.com/Thundernerd/Unity3D-ConstrainedRect.git in the input field.
-

@@ -21,14 +21,22 @@
 
         public bool IsSet => mode != ConstrainMode.NotSet;
 
-        public Constraint(ConstrainedRect parent, bool negateValue)
+        internal Constraint(ConstrainedRect parent, bool negateValue)
         {
             this.parent = parent;
             this.negateValue = negateValue;
+            Reset();
+        }
+
+        internal void Reset()
+        {
+            mode = ConstrainMode.NotSet;
+            value = 0;
         }
 
         public ConstrainedRect Relative(float value)
         {
+            parent.ThrowIfInvalid();
             mode = ConstrainMode.Relative;
             this.value = value;
             return parent;
@@ -36,6 +44,7 @@
 
         public ConstrainedRect Absolute(float value)
         {
+            parent.ThrowIfInvalid();
             mode = ConstrainMode.Absolute;
             this.value = value;
             return parent;
@@ -43,6 +52,7 @@
 
         public ConstrainedRect Percentage(float value)
         {
+            parent.ThrowIfInvalid();
             mode = ConstrainMode.Percentage;
             this.value = value;
             return parent;
@@ -50,6 +60,7 @@
 
         internal float Apply(float value)
         {
+            parent.ThrowIfInvalid();
             switch (mode)
             {
                 case ConstrainMode.Relative:
