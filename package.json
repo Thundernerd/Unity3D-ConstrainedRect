@@ -1,6 +1,6 @@
 {
   "name": "net.tnrd.constrainedrect",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "displayName": "Constrained Rect",
   "description": "A simple helper to constrain a Rect to an EditorWindow or another Rect",
   "unity": "2019.1",

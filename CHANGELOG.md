@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.0.1] - 2020-08-02
+### Fixed
+- Resetting of horizontal and vertical centering
+
 ## [3.0.0] - 2020-08-02
 ### Added
 - Pooling of Constrained Rect
