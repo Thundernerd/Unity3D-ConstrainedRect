@@ -12,7 +12,7 @@ namespace TNRD.Constraints
 
         public static ConstrainedRect To(Rect rect)
         {
-            return new ConstrainedRect(rect);
+            return ConstrainedRectPool.Create(rect);
         }
     }
 }
