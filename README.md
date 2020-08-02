@@ -59,6 +59,14 @@ private void Foo()
 }
 ```
 
+### Important
+Due to the nature of Unity's editor architecture it is common to use Constrained Rects in high volume. In an attempt to prevent creating and collecting too much garbage as a result of using Constrained Rects they are now being pooled.
+
+After you've finalized your Constrained Rect by calling `.ToRect()` the Constrained Rect will be returned to the pool and free to use for other instances. 
+
+While all of this happens under the hood it is important to understand that from the moment that you call `.ToRect()` the Constrained Rect will throw an exception if it is not being used. This also means that if it is being used then the properties and variables might be different from what you might expect.
+
+
 ## Contributing
 Pull requests are welcomed. Please feel free to fix any issues you find, or add new features.
 
