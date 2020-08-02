@@ -34,6 +34,9 @@ namespace TNRD.Constraints
         {
             this.parent = parent;
 
+            centerHorizontally = false;
+            centerVertically = false;
+
             Top.Reset();
             Bottom.Reset();
             Left.Reset();
