@@ -21,7 +21,11 @@ Constrained Rect is a small helper that aims to make it easier to create Rect's 
 ```
 openupm add net.tnrd.constrainedrect
 ```
-2. You can also install via git url by adding these entries in your **manifest.json**
+2. Installing through a [Unity Package](http://package-installer.glitch.me/v1/installer/package.openupm.com/net.tnrd.constrainedrect?registry=https://package.openupm.com) created by the [Package Installer Creator](https://package-installer.glitch.me) from [Needle](https://needle.tools)
+
+[<img src="https://api-lunacy.icons8.com/api/assets/875da8b1-d471-4d63-aaa0-5c58efe04dc1/Simple Download Button.png"/>](http://package-installer.glitch.me/v1/installer/package.openupm.com/net.tnrd.constrainedrect?registry=https://package.openupm.com)
+
+3. You can also install via git url by adding these entries in your **manifest.json**
 ```json
 "net.tnrd.constrainedrect": "https://github.com/Thundernerd/Unity3D-ConstrainedRect.git"
 ```
