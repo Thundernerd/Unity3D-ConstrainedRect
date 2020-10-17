@@ -23,7 +23,7 @@ openupm add net.tnrd.constrainedrect
 ```
 2. Installing through a [Unity Package](http://package-installer.glitch.me/v1/installer/package.openupm.com/net.tnrd.constrainedrect?registry=https://package.openupm.com) created by the [Package Installer Creator](https://package-installer.glitch.me) from [Needle](https://needle.tools)
 
-[<img src="https://api-lunacy.icons8.com/api/assets/800f6aef-f049-4236-9584-e3fc6f8a0325/Simple Download Button.png"/>](http://package-installer.glitch.me/v1/installer/package.openupm.com/net.tnrd.constrainedrect?registry=https://package.openupm.com)
+[<img src="https://api-lunacy.icons8.com/api/assets/74506671-1e01-48de-9acf-45e80ac56ecc/Simple Download Button.png"/>](http://package-installer.glitch.me/v1/installer/package.openupm.com/net.tnrd.constrainedrect?registry=https://package.openupm.com)
 
 3. You can also install via git url by adding these entries in your **manifest.json**
 ```json
