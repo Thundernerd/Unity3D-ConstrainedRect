@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.2] - 2020-10-17
+### Added
+- Extra download option
+
+### Updated
+- Author name
+
 ## [3.0.1] - 2020-08-02
 ### Fixed
 - Resetting of horizontal and vertical centering
